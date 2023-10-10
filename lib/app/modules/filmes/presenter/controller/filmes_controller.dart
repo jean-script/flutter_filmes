@@ -2,7 +2,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_filmes/app/modules/filmes/domain/entities/filmes_entity.dart';
 import 'package:flutter_filmes/app/modules/filmes/domain/erros/filme_exception.dart';
-import 'package:flutter_filmes/app/modules/filmes/presenter/controller/movie_controller.dart';
 import 'package:get/get.dart';
 
 import 'package:flutter_filmes/app/modules/filmes/domain/usecases/get_data_api_usecase.dart';
@@ -11,6 +10,7 @@ class FilmesController extends GetxController
     with StateMixin<List<FilmesEntity>> {
   final IGetFilmesUsecase _getData;
   List<FilmesEntity> data = [];
+  RxBool loading = false.obs;
 
   FilmesController(
     this._getData,
@@ -21,10 +21,11 @@ class FilmesController extends GetxController
 
   @override
   void onInit() async {
-    // TODO: implement onInit
     super.onInit();
 
     change(null, status: RxStatus.loading());
+
+    loading.value = true;
 
     id = Get.parameters['id'];
 
@@ -37,10 +38,12 @@ class FilmesController extends GetxController
     result = await _getData();
 
     result.fold((l) {
-      change(null, status: RxStatus.error());
       print(l.message);
+      loading.value = false;
+      change(null, status: RxStatus.error());
     }, (r) {
       data = r;
+      loading.value = false;
       change(data, status: RxStatus.success());
     });
   }

@@ -29,8 +29,7 @@ class MovieFavoritePage extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () =>
-                  Get.offNamedUntil(MyRoutes.favorito, (route) => false),
+              onPressed: () => Get.offAllNamed(MyRoutes.favorito),
               style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(Colors.white)),
               child: const Text(

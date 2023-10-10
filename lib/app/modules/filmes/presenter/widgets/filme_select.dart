@@ -9,7 +9,7 @@ class FilmeSelect extends GetView<MovieController> {
   @override
   Widget build(BuildContext context) {
     return controller.obx(
-      (state) => Padding(
+      (ctx) => Padding(
         padding: const EdgeInsets.symmetric(
           vertical: 20,
         ),
@@ -31,6 +31,7 @@ class FilmeSelect extends GetView<MovieController> {
                     image: DecorationImage(
                       image: NetworkImage(
                           'https://image.tmdb.org/t/p/original/${controller.movie.backdropPath}'),
+                      scale: 2,
                       fit: BoxFit.cover,
                     ),
                   ),

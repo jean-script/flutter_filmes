@@ -13,7 +13,7 @@ class FilmesPage extends GetView<FilmesController> {
   @override
   Widget build(BuildContext context) {
     return controller.obx(
-      (state) => Container(
+      (ctx) => Container(
         color: Colors.white,
         child: Column(
           // crossAxisAlignment: CrossAxisAlignment.center,
@@ -93,7 +93,7 @@ class CardFilme extends StatelessWidget {
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
-                  onTap: () => Get.toNamed(MyRoutes.filme,
+                  onTap: () => Get.offAllNamed(MyRoutes.filme,
                       parameters: {'id': '${filme.id}'}),
                   child: Container(
                     width: double.infinity,

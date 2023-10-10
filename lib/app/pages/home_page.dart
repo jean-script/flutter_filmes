@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_filmes/app/modules/filmes/presenter/controller/filmes_controller.dart';
 import 'package:flutter_filmes/app/modules/filmes/presenter/widgets/filmes_page.dart';
 import 'package:flutter_filmes/app/routes/routes.dart';
 import 'package:get/get.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends GetView<FilmesController> {
   const HomePage({super.key});
 
   @override
@@ -18,7 +19,9 @@ class HomePage extends StatelessWidget {
             MouseRegion(
               cursor: SystemMouseCursors.click,
               child: GestureDetector(
-                onTap: () => Get.offNamedUntil(MyRoutes.home, (route) => false),
+                onTap: () {
+                  Get.offAllNamed(MyRoutes.home);
+                },
                 child: const Text(
                   'Prime Flix',
                   style: TextStyle(
@@ -31,7 +34,7 @@ class HomePage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () =>
-                  Get.offNamedUntil(MyRoutes.favorito, (route) => false),
+                  Get.offAllNamed(MyRoutes.favorito),
               style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(Colors.white)),
               child: const Text(

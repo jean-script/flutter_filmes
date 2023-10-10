@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_filmes/app/modules/filmes/presenter/controller/movie_controller.dart';
 import 'package:flutter_filmes/app/modules/filmes/presenter/widgets/filme_select.dart';
 import 'package:flutter_filmes/app/routes/routes.dart';
 import 'package:get/get.dart';
 
-class FilmeSelectPage extends StatelessWidget {
+class FilmeSelectPage extends GetView<MovieController> {
   const FilmeSelectPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  AppBar(
+      appBar: AppBar(
         backgroundColor: Colors.black,
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -18,7 +19,9 @@ class FilmeSelectPage extends StatelessWidget {
             MouseRegion(
               cursor: SystemMouseCursors.click,
               child: GestureDetector(
-                onTap: () =>  Get.offNamedUntil(MyRoutes.home, (route) => false),
+                onTap: () {
+                  Get.offAllNamed(MyRoutes.home);
+                },
                 child: const Text(
                   'Prime Flix',
                   style: TextStyle(
@@ -31,7 +34,7 @@ class FilmeSelectPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () =>
-                  Get.offNamedUntil(MyRoutes.favorito, (route) => false),
+                  Get.offAllNamed(MyRoutes.favorito),
               style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(Colors.white)),
               child: const Text(

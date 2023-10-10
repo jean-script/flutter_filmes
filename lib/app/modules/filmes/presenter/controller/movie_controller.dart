@@ -19,9 +19,9 @@ class MovieController extends GetxController with StateMixin<FilmeEntity> {
   late String? id;
   List listStorge = [];
 
+
   @override
   void onInit() async {
-    // TODO: implement onInit
     super.onInit();
     change(null, status: RxStatus.loading());
 
@@ -36,7 +36,6 @@ class MovieController extends GetxController with StateMixin<FilmeEntity> {
     result = await _getMovie(id);
 
     result.fold((l) {
-      change(null, status: RxStatus.error());
       print(l.message);
     }, (r) {
       movie = r;
@@ -57,6 +56,5 @@ class MovieController extends GetxController with StateMixin<FilmeEntity> {
     listStorge.add(isFavorite);
 
     box.write('@filme', json.encode(listStorge));
-
   }
 }
