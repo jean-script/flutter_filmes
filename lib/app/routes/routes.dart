@@ -11,16 +11,19 @@ abstract class MyRoutes {
 
   static final pages = <GetPage>[
     GetPage(
+      title: 'Prime flix',
       name: home,
       page: () => const HomePage(),
       binding: InitialBindings(),
     ),
     GetPage(
+      title: 'Prime flix - filme',
       name: filme,
       page: () => const FilmeSelectPage(),
       binding: InitialBindings(),
     ),
     GetPage(
+      title: 'Prime flix - favoritos',
       name: favorito,
       page: () => const MovieFavoritePage(),
     ),

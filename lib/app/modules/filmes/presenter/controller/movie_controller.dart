@@ -11,14 +11,13 @@ import 'package:get_storage/get_storage.dart';
 
 class MovieController extends GetxController with StateMixin<FilmeEntity> {
   final IGetMovieUsecase _getMovie;
-  FilmeEntity movie =
-      FilmeEntity(id: 0, title: '', backdropPath: '', overview: '');
+  FilmeEntity movie = FilmeEntity(
+      id: 0, title: '', backdropPath: '', overview: '', voteAverage: 0);
 
   MovieController(this._getMovie);
   FilmeEntity get filme => movie;
   late String? id;
   List listStorge = [];
-
 
   @override
   void onInit() async {
@@ -46,15 +45,5 @@ class MovieController extends GetxController with StateMixin<FilmeEntity> {
   void favoriteMovie(FilmeEntity movie) {
     final box = GetStorage();
 
-    var isFavorite = box.read('@filme');
-
-    if (isFavorite != null) {
-      print('Filme já esta favoritado');
-      return;
-    }
-
-    listStorge.add(isFavorite);
-
-    box.write('@filme', json.encode(listStorge));
   }
 }

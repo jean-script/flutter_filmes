@@ -22,6 +22,7 @@ class MovieSelectMapper extends FilmeEntity {
     required super.title,
     required super.backdropPath,
     required super.overview,
+    required super.voteAverage
   });
 
   factory MovieSelectMapper.fromMap(Map<String, dynamic> map) {
@@ -30,6 +31,7 @@ class MovieSelectMapper extends FilmeEntity {
       title: map['title'],
       backdropPath: map['backdrop_path'],
       overview: map['overview'],
+      voteAverage: map['vote_average'],
     );
   }
 }

@@ -43,10 +43,23 @@ class MovieFavoritePage extends StatelessWidget {
           ],
         ),
       ),
-      body: Container(
-        child: const Column(
+      body: const SizedBox(
+        width: double.infinity,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Filmes favoritos'),
+            DefaultTextStyle(
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w600,
+                ),
+                child: Column(
+                  children: [
+                    Text('Filmes favoritos'),
+                    Text('Pagina sendo construida'),
+                  ],
+                ))
           ],
         ),
       ),

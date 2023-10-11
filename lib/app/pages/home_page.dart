@@ -33,8 +33,7 @@ class HomePage extends GetView<FilmesController> {
               ),
             ),
             ElevatedButton(
-              onPressed: () =>
-                  Get.offAllNamed(MyRoutes.favorito),
+              onPressed: () => Get.offAllNamed(MyRoutes.favorito),
               style: const ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(Colors.white)),
               child: const Text(

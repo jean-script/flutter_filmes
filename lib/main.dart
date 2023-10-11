@@ -13,6 +13,7 @@ void main() async {
   } catch (e) {
     runApp(
       GetMaterialApp(
+        title: 'Prime flix',
         debugShowCheckedModeBanner: false,
         initialBinding: InitialBindings(),
         home: Container(
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      title: 'Prime flix',
       debugShowCheckedModeBanner: false,
       getPages: MyRoutes.pages,
       initialBinding: InitialBindings(),

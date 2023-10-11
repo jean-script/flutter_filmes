@@ -28,6 +28,7 @@ class FilmeSelect extends GetView<MovieController> {
                   width: double.infinity,
                   height: 400,
                   decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(5)),
                     image: DecorationImage(
                       image: NetworkImage(
                           'https://image.tmdb.org/t/p/original/${controller.movie.backdropPath}'),
@@ -36,6 +37,8 @@ class FilmeSelect extends GetView<MovieController> {
                     ),
                   ),
                 ),
+                const SizedBox(height: 10),
+                Text('Media dos votos: ${controller.filme.voteAverage}'),
                 const SizedBox(height: 10),
                 Text(
                   controller.movie.overview,
